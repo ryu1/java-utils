@@ -12,7 +12,7 @@ import java.util.List;
  * Time: 16:46
  * To change this template use File | Settings | File Templates.
  */
-public class XmlUtilTest {
+public class XmlUtilsTest {
     @org.junit.Test
     public void testFromXML() throws Exception {
         String xml = "<parent>\n" +
@@ -30,7 +30,7 @@ public class XmlUtilTest {
                 "  </children>\n" +
                 "</parent>";
 
-        Parent john = XmlUtil.fromXML(Parent.class, xml);
+        Parent john = XmlUtils.fromXML(Parent.class, xml);
         System.out.println(john);
     }
 
@@ -52,7 +52,7 @@ public class XmlUtilTest {
         children.add(jessica);
         john.setChildren(children);
 
-        String xml = XmlUtil.toXML(john);
+        String xml = XmlUtils.toXML(john);
         System.out.println(xml);
     }
 

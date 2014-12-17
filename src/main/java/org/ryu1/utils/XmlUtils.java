@@ -10,17 +10,17 @@ package org.ryu1.utils;
 import com.thoughtworks.xstream.XStream;
 
 /**
- * XMLUtilクラス.
+ * XMLUtilsクラス.
  */
-public final class XmlUtil {
+public final class XmlUtils {
 
-    private XmlUtil() {
+    private XmlUtils() {
     }
 
     /**
      * XML文字列をオブジェクトに変換します
-     * @param clazz
-     * @param xml
+     * @param clazz クラス
+     * @param xml XML文字列
      * @return object of clazz
      */
     @SuppressWarnings("unchecked")
@@ -32,7 +32,7 @@ public final class XmlUtil {
 
     /**
      * オブジェクトをXML文字列に変換します
-     * @param obj
+     * @param obj オブジェクト
      * @return String of XML
      */
     public static <T> String toXML(T obj) {
