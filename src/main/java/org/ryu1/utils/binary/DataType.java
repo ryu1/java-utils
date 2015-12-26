@@ -1,8 +1,8 @@
-package org.ryu1.utils;
+package org.ryu1.utils.binary;
 
 /**
  * データ型.
- * @author AIF 石塚 隆一
+ * @author 石塚 隆一
  *
  */
 public enum DataType {

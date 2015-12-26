@@ -1,4 +1,6 @@
-package org.ryu1.utils;
+package org.ryu1.utils.binary;
+
+import org.ryu1.utils.binary.ByteOrder;
 
 /**
  * バイナリ解析の設定.

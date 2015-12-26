@@ -1,4 +1,4 @@
-package org.ryu1.utils;
+package org.ryu1.utils.binary;
 
 /**
  * バイトの並び順クラス.

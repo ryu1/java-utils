@@ -1,10 +1,11 @@
-package org.ryu1.utils;
+package org.ryu1.utils.file;
 
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
 
 /**
+ * FileUtils.
  * Created by ryu on 14/12/17.
  */
 public class FileUtils extends org.apache.commons.io.FileUtils {

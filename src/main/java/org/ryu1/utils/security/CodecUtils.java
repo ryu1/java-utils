@@ -1,4 +1,4 @@
-package org.ryu1.utils;
+package org.ryu1.utils.security;
 
 import org.apache.commons.codec.binary.Base64;
 

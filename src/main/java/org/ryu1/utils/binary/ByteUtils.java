@@ -1,4 +1,9 @@
-package org.ryu1.utils;
+package org.ryu1.utils.binary;
+
+import org.ryu1.utils.binary.BinaryConfig;
+import org.ryu1.utils.binary.ByteOrder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.nio.ByteBuffer;
 import java.util.Arrays;
@@ -10,6 +15,16 @@ import java.util.Arrays;
  * @author 石塚 隆一
  */
 public final class ByteUtils {
+
+
+    @SuppressWarnings("unused")
+    private static final Logger LOGGER = LoggerFactory.getLogger(ByteUtil.class);
+
+    /** 改行位置 */
+    public static final int LINE_BYTES = 16;
+
+    /** 区切り文字 */
+    public static final String LINE_SEPARATOR = System.getProperty("line.separator");
 
     /** 16進数であることを表す. */
     public static final String PREFIX_OX = "0x";
@@ -24,7 +39,7 @@ public final class ByteUtils {
      * インスタンス生成禁止.
      */
     private ByteUtils() {
-        
+        throw new UnsupportedOperationException();
     }
     
     /**
@@ -164,5 +179,67 @@ public final class ByteUtils {
         int i = ByteBuffer.wrap(data).getInt();
         return String.valueOf(i);
     }
-    
+
+
+
+
+    /**
+     * バイト配列をオブジェクトにデシリアライズする
+     *
+     * @param bytes バイト配列
+     * @return object
+     * @throws ClassNotFoundException クラスが存在しない
+     * @throws IOException IOException
+     * @since 2014
+     */
+    public static Object byteArrayToObject(byte[] bytes) throws ClassNotFoundException, IOException {
+        ByteArrayInputStream bais = null;
+        ObjectInputStream oin = null;
+        try {
+            bais = new ByteArrayInputStream(bytes);
+        } finally {
+            if (bais != null) {
+                bais.close();
+            }
+
+        }
+        Object obj = null;
+        try {
+            oin = new ObjectInputStream(bais);
+            obj = oin.readObject();
+        } finally {
+            if (oin != null) {
+                oin.close();
+            }
+        }
+        return obj;
+    }
+
+    /**
+     * .
+     * バイトデータを文字列化して返します。
+     *
+     * @param data
+     *            文字列化するバイトデータ
+     * @return 文字列化したバイトデータ
+     */
+    public static String toDebuggableHexString(final byte[] data) {
+        if (data == null) {
+            // パラメータ不正
+            return "";
+        }
+
+        StringBuffer result = new StringBuffer();
+
+        for (int i = 0; i < data.length; i++) {
+            result.append(String.format("%02X ", data[i]));
+
+            if (((i + 1) % LINE_BYTES == 0) && (i + 1 < data.length)) {
+                // 16 バイトごとに改行する
+                // ただし、一番最後の場合は改行しない
+                result.append(LINE_SEPARATOR);
+            }
+        }
+        return result.toString();
+    }
 }

@@ -3,6 +3,8 @@ package org.ryu1.utils;
 import static org.junit.Assert.*; // CHECK_IGNORE(Reason:テストソースのため)
 
 import org.junit.Test;
+import org.ryu1.utils.binary.ByteOrder;
+import org.ryu1.utils.binary.ByteUtils;
 
 /**
  * ByteUtilsクラスのテスト.

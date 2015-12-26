@@ -1,9 +1,8 @@
 package org.ryu1.utils;
 
-import static org.junit.Assert.*;
-
 import java.io.IOException;
 import org.junit.Test;
+import org.ryu1.utils.security.CodecUtils;
 
 /**
  * 
