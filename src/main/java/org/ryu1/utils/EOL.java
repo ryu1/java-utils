@@ -1,4 +1,6 @@
-//  NewLine EOL = NewLine.get(prop.getProperty("EOL"));
+package org.ryu1.utils;
+
+//  EOL eol = NewLine.get(prop.getProperty("EOL"));
 public enum EOL {
     CR("\r"),
     LF("\n"),
