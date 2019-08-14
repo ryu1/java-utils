@@ -44,7 +44,7 @@ public final class ReflectionUtil {
      * @throws IllegalAccessException
      */
     public static void writeDeclaredStaticField(@SuppressWarnings("rawtypes") Class cls, String fieldName, Object value) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-        Field field = FieldUtils.getDeclaredField(EscottSmartCrpTelegrapher.class, "REQUESTURL", true);
+        Field field = FieldUtils.getDeclaredField(EscottSmartCrpTelegrapher.class, fieldName, true);
         setFinalStatic(field, value);
     }
 
